@@ -1,0 +1,3 @@
+CREAT DATABASE Mydb; // creat  data
+USE Mydb; use  the data 
+DROP DATABASE Mydb;  remove the data
