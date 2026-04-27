@@ -1,0 +1,19 @@
+select   first_name, last_name
+From employees;
+wher emplooyes_id=1;
+
+select   *
+From employees;
+wher hourly_pay>=15;
+
+select   *
+From employees;
+wher emplooyes_id!=1;
+
+select   *
+From employees;
+wher haire_date IS NULL;
+select   *
+From employees;
+wher haire_date IS NOT NULL;
+
