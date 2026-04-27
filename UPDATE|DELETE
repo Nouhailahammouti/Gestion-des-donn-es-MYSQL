@@ -1,0 +1,18 @@
+UPDATE epmlooyes 
+SET   horly_pay=10.25
+WHERE  employed_id=6;
+ select *from employees
+
+UPDATE epmlooyes 
+SET   horly_pay=10.25,hire_date="2026-03-3"
+WHER  employed_id=6;
+ select *from employees
+
+UPDATE epmlooyes 
+SET  hire_date=NULL
+WHER  employed_id=6;
+ select *from employees
+
+DELETE  FROM employees
+WHERE employed_id=6;
+select *from employees
