@@ -1,0 +1,31 @@
+1/creat table employees(
+employees_id INT,
+first_name VARCHE(50),
+last_name VARCHER(),
+hire_date datetime(),);
+
+2/select table:
+select * from employees;
+
+3/ how  to rename  the table 
+rename table employees To workers;
+
+4/ how to drop a table :
+drop table employees;
+5/ if we wanna ad a new coulum  in our table:
+Alter table  employees
+ADD phone_number varcar(15);
+6/inser the value: 
+INSERT INTO  employees
+value(
+1,"nouhaila","hammouti",25.5,"2026-04-27"),(),()...etc;
+select *from employees;
+
+7/ if you want  insert just the  helf of the value :
+INSERT INTO  employees(employees_id,firs_name,lase_name)
+value(1,"nouhaila","hammouti");
+select *from employees;
+
+
+
+
