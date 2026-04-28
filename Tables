@@ -24,6 +24,13 @@ select *from employees;
 7/ if you want  insert just the  helf of the value :
 INSERT INTO  employees(employees_id,firs_name,lase_name)
 value(1,"nouhaila","hammouti");
+
+ 8/unique
+creat table proudacts(
+proudact_id INT,
+proudact_name varche(20) UNUQUE, // we can't named any thing else en tis table with the same name
+price Dicimel(4,2),
+)
 select *from employees;
 
 
