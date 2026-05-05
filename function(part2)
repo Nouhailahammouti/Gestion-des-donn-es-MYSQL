@@ -1,0 +1,92 @@
+Most Common Function Problems:
+     Create a function that returns the total price
+    
+     DELEMETER$$
+     creat function total (total int, qty int)
+     reture int 
+     DETERMINISTIC //for only the  positife numbres
+     begin
+    return  price *qty;
+      end$$
+      DELEMERT;
+
+//Condition(IF):
+Return 'expensive' if price > 100, otherwise 'cheap'”:
+DELEMETER$$
+creat function checkprice(price int)
+returne VARCHE(50)
+DETERMINISTIC
+ begin
+ if  p>100 the 
+ rutrun "expansive";
+ else 
+ ruten "cheap";
+ end if 
+ end$$
+ delemeter;
+
+
+ Using variables (DECLARE)
+ Add 10 to a number and return it”
+
+
+
+ DELEMETER $$
+ creat function addten(ten int)
+ retune int
+ deterministic
+ beging 
+ declar ress int
+ set res = ten +10
+ returne ress;
+ end$$
+ delemeter;
+ 
+ 
+
+ What is DECLARE?
+
+👉 DECLARE is used to create a variable inside a function
+
+DECLARE result INT;
+  This means:
+
+create a variable called result
+its type is INT (it will store numbers)
+
+Why do we use it?
+
+👉 When you need to:
+
+store a value temporarily
+do calculations step by step
+Example WITHOUT DECLARE  retune a+b;
+Example WITH DECLARE
+DECLARE result INT;
+SET result = a + b;
+RETURN result;
+Easy Way to Remember
+DECLARE → create variable
+SET → give it value
+RETURN → send result
+
+
+Problem: Calculate discount
+
+👉 If price > 100 → 20% discount
+👉 else → 10%
+DELIMITER //
+
+CREATE FUNCTION finalPrice(p INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+   IF p > 100 THEN
+      RETURN p - (p * 0.2);
+   ELSE
+      RETURN p - (p * 0.1);
+   END IF;
+END //
+
+DELIMITER ;
+
