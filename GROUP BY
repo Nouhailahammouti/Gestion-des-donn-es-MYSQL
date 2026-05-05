@@ -1,0 +1,62 @@
+GROUP BY is used to group rows that have the same values in a column.
+
+
+You have a table orders:
+
+ customer	   price
+| Ali	    |    100 |
+| Sara    |  	200  |
+| Ali	    |     50 |
+
+
+SELECT customer, SUM(price)
+FROM orders
+GROUP BY customer;
+
+customer	SUM(price)
+Ali	       150
+Sara	     200
+
+So we grouped by customer and calculated total price for each one.
+
+What is HAVING:
+HAVING is used to filter groups AFTER grouping.
+GROUP BY → makes groups
+HAVING → filters those groups
+
+
+SELECT customer, SUM(price) AS total
+FROM orders
+GROUP BY customer
+HAVING total > 160;
+
+customer	total
+Sara	     200
+
+
+Difference between WHERE and HAVING
+
+          WHERE	                                         HAVING
+|  Filters rows BEFORE grouping	             |  Filters groups AFTER grouping |
+|  Cannot use SUM(), COUNT()...	             |  Can use SUM(), COUNT()...     |
+|  Used without GROUP BY or before it        | 	Used with GROUP BY            |
+
+
+using weher 
+SELECT customer, price
+FROM orders
+WHERE price > 100;
+
+
+using having SELECT customer, SUM(price)
+FROM orders
+GROUP BY customer
+HAVING SUM(price) > 100;
+
+
+Easy Rule (remember this):
+WHERE → before grouping
+GROUP BY → make groups
+HAVING → after grouping
+
+
