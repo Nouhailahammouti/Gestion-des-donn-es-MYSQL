@@ -1,0 +1,36 @@
+A function in SQL is something that takes a value → does something → returns a result
+Think of it like a machin:
+input → function → output
+المدخلات ← الدالة ← المخرجات
+
+🔸 Types of SQL Functions
+    Aggregate Functions (work on MANY rows)
+    Function          	What it does
+SUM()	        |           total
+COUNT()       |        	number of rows
+AVG()	        |         average
+MAX()         |        	biggest value
+MIN()	        |         smallest value
+
+
+exmp:
+SELECT SUM(price) FROM orders;///IMPORTANT
+Single Row Functions (work on ONE row)
+UPPER(name) → makes text uppercase
+LOWER(name) → lowercase
+LENGTH(name) → number of characters
+exmpl:
+SELECT UPPER(name) FROM users;
+
+
+
+Now we mix functions with GROUP BY 
+SELECT customer, COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer;
+Show customers who spent more than 100
+
+SELECT customer, SUM(price) AS total
+FROM orders
+GROUP BY customer
+HAVING SUM(price) > 100;
