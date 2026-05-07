@@ -1,0 +1,63 @@
+Function → returns ONE value
+Procedure → does operations/actions
+ Syntax:
+  DELIMITER //
+
+CREATE PROCEDURE procedureName()
+BEGIN
+
+   -- SQL code here
+
+END //
+
+DELIMITER ;
+  Examples:
+1/Create procedure that displays all products
+ delemeter$$
+creat prouceder showproudacts()
+begin
+select * from proucads 
+end$$
+deemeter;
+  CALL showProducts();
+
+2/Show one product by id
+ dlemeter$$
+creat proucuder showeronep(in paid int)
+begin 
+selcet * from proudact 
+ where id=paid;
+
+ //  with DECLARE + IF
+     Check if product is expensive
+
+delemter $$
+ creat prousider check (IN pid int)
+  begin 
+end $$
+declar  p int 
+ select * from proudacts 
+where id=pid;
+if p>300 then 
+select "expansife" ;
+else 
+select "cheap";
+end if
+delmter
+end$$
+delemter;
+
+  Procedure Problems::
+ desplay data: select* from table
+ insert data: INSERT INTO  TABLE VALUE(...)
+ update data : UPDATE TABLE set culume =value  wher id=x;(x is the now value)
+  delet data: delet from table  wher id =x;(x is the value that u wnn delete)
+Functions:
+
+calculations
+returning value
+
+Procedures:
+
+manipulating database
+displaying data
