@@ -1,0 +1,62 @@
+“If something happens → execute code automatically”
+  | Action | Meaning        |
+| ------ | -------------- |
+| INSERT | adding data    |
+| UPDATE | modifying data |
+| DELETE | deleting data  |
+
+syntex 
+DELIMITER //
+
+CREATE TRIGGER triggerName
+BEFORE INSERT
+ON tableName
+FOR EACH ROW
+BEGIN
+
+   -- SQL code
+
+END //
+
+DELIMITER ;
+
+
+ Important Words
+
+ | Keyword      | Meaning               |
+| ------------ | --------------------- |
+| BEFORE       | before operation      |
+| AFTER        | after operation       |
+| INSERT       | add row               |
+| UPDATE       | modify row            |
+| DELETE       | remove row            |
+| FOR EACH ROW | execute for every row |
+    The MOST IMPORTANT Thing
+  | Keyword    | Meaning   |
+| ---------- | --------- |
+| NEW.column | new value |
+| OLD.column | old value |
+
+
+
+ first simple exmple :
+Tables:
+  | id | name |
+| -- | ---- |
+| 1  | Ali  |
+
+ 1/insert message into logs table
+  DELIMITER //
+
+CREATE TRIGGER studentAdded
+AFTER INSERT
+ON students
+FOR EACH ROW
+BEGIN
+
+   INSERT INTO logs(message)
+   VALUES('New student added');
+
+END //
+
+DELIMITER ;
