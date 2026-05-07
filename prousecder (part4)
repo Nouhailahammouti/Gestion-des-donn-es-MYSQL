@@ -1,0 +1,42 @@
+table:proudacts 
+| id | name   | stock |
+| -- | ------ | ----- |
+| 1  | Mouse  | 10    |
+| 2  | Screen | 2     |
+
+1/displays products with stock < 5
+delemter $$
+ creat prousecer stock ()
+ begin
+ select * from products
+  where stock <5
+ end$$
+ delemter;
+
+2/receives product id
+if stock > 0 display "Available"
+else display "Unavailable"
+
+/displays products with stock < 5
+delemter $$
+ creat prousecer stock ( IN sid INT )
+ begin
+ declar st INT 
+SELECT stock into st FROM  PROUCDTS
+ WHERE  id= sid;
+  if  st>0
+  select "AVAILABLE";
+  else
+  select "UNVARIBLE";
+ end$$
+ delemter;
+     🧠 IMPORTANT EXAM LOGIC
+    | Problem asks         | Use         |
+| -------------------- | ----------- |
+| show data            | SELECT      |
+| add data             | INSERT      |
+| modify data          | UPDATE      |
+| remove data          | DELETE      |
+| compare/check        | IF          |
+| get value from table | SELECT INTO |
+| store value          | DECLARE     |
