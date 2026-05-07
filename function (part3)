@@ -1,0 +1,188 @@
+1/Calculate discount:
+If price > 100 → 20% discount
+👉 else → 10%
+ DELEMAITER$$
+  creat function dic (p INT)
+   RETURNE int
+   DETERMINISTIC
+   BEGIN 
+    if p>100 then
+    retune p-(p*0.2)
+    else 
+    returne p-(p*0.1)
+    end if
+    END$$
+    DELEMTER
+
+
+2/ Return grade based on score:
+
+= 16 → “Excellent”
+
+= 10 → “Pass”
+
+< 10 → “Fail
+
+DELEMETER 
+creat function scoregrad( score INT)
+RETUNRE VARCH (20)
+ DETERMINISTIC
+ BEGIN 
+ if score >= 16 then
+ returne "Excellent";
+ elseif  score >=10 then 
+ returne"pass";
+ else 
+ retune"Fail"
+ END$$
+ DELEMETER;
+
+
+
+
+             🚨 Common Mistakes:
+             ❌ Forgetting DELIMITER
+
+👉 function will not work
+
+❌ Forgetting RETURN
+
+👉 ERROR
+
+❌ Using WHERE inside function incorrectly
+
+👉 Functions usually return value, not queries
+
+PROBLEMES WITH TABLES
+1/  Suppose we have table products:
+| id | price |
+| -- | ----- |
+| 1  | 100   |
+| 2  | 200   |
+  DELIMITER //
+
+CREATE FUNCTION getPrice(pid INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+   DECLARE p INT;
+
+   SELECT price INTO p
+   FROM products
+   WHERE id = pid;
+
+   RETURN p;
+END //
+
+DELIMITER ;
+
+  2/Create a function:
+
+receives product id
+returns product price
+ | id | name   | price |
+| -- | ------ | ----- |
+| 1  | Mouse  | 100   |
+| 2  | Screen | 500   |
+
+   DELEMETER $$
+   creat function getname (paid int)
+    returnevarch (50)
+    determinstic
+    begin 
+    declar n varche(50)
+     select  name into n from proudact
+     where id=paid;
+     returne n;
+     
+    end$$
+    delemter;
+
+2/Create function:
+
+receives product id
+if price > 300 return "Expensive"
+else return "Cheap"
+    DELEMTER $$
+    creat function   resf (recirve int)
+    retune varche(50)
+    determinstic
+    begin
+    declar p int;
+    select price into p from proudacts
+    wher id= recirve
+    if p >300 then 
+    return "expenive";
+    else returne "cheap";
+    end if
+    end$$
+    delemeter;
+
+3/| id | name | note |
+| -- | ---- | ---- |
+| 1  | Ali  | 18   |
+| 2  | Sara | 9    |
+   Create function:
+
+receives student id
+returns:
+"Pass" if note >= 10
+"Fail" otherwise
+  delemeter$$
+   creat function  note(nota int)
+    returne varch (50)
+    determinstic
+    begin
+    declar n int
+    select nota into  n  from student;
+    where id=nota;
+    if n>=10 then 
+    returne "pass";
+    else retune "fail";
+    endif
+    end$$
+    delemter;
+                    REZZ
+                    DELIMITER //
+
+CREATE FUNCTION name(parameter TYPE)
+RETURNS TYPE
+DETERMINISTIC
+BEGIN
+
+   DECLARE variable TYPE;
+
+   SELECT column INTO variable
+   FROM table
+   WHERE condition;
+
+   IF condition THEN
+      RETURN something;
+   ELSE
+      RETURN something;
+   END IF;
+
+END //
+
+DELIMITER ;
+
+   If there is NO table:
+    We use a simple function 
+    exmpl :
+     CREATE FUNCTION sumNumbers(a INT, b INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+   RETURN a + b;
+END;
+ but if we have a tables wehave to use
+ DECLARE
+SELECT ... INTO
+WHERE  ....etc
+exmple : 
+DECLARE p INT;
+
+SELECT price INTO p
+FROM products
+WHERE id = pid;
+
