@@ -1,0 +1,84 @@
+| id | name | note |
+| -- | ---- | ---- |
+| 1  | Ali  | 15   |
+| 2  | Sara | 8    |
+
+1/displays only students with note >= 10
+delemter$$
+ creat rouceder  shownotestudent ()
+ being 
+ select * from student 
+  where note >=10
+ end$$
+ delemteer;
+
+2/displays number of students
+
+delemter$$ creat prouseder  count()
+ beging 
+ select  count(*) as 'total'
+  from student;
+ end$$
+
+3/
+Create procedure:
+
+receives student name
+displays matching student
+
+DELIMITER //
+
+CREATE PROCEDURE searchStudent(IN sname VARCHAR(50))
+BEGIN
+
+   SELECT *
+   FROM students
+   WHERE name = sname;
+
+END //
+
+DELIMITER ;
+4/
+receives student id
+adds 2 points to note
+
+
+ delemter $$
+ creat proucedur addnote( IN sid INT)
+  begin
+  update student 
+   set note= note+2
+    where id=sid
+    end$$
+  delemter;
+
+  5/
+  displays:
+
+"Pass" if note >= 10
+"Fail" otherwise
+ delemter$$
+ creat prouceder (IN sid INT)
+ begin
+ declar n INT
+  select note into n from  student 
+  where id=sid;
+  if n>=10
+  select "pass";
+  else 
+  select"fail";
+  end if;
+ end$$
+ delemter;
+
+ 6/ delete student when note <10
+
+
+ delemter $$
+  creat prouceder  delet()
+  begin 
+   delete  from student  
+    when note<10;
+   end$$
+   delemter;
+   
