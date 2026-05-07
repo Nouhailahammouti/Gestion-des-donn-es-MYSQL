@@ -1,0 +1,63 @@
+TABLE:(students)
+| id | name | note |
+| -- | ---- | ---- |
+| 1  | Ali  | 15   |
+| 2  | Sara | 18   |
+
+
+ 1/Create a procedure that displays all students:
+ delemter $$
+creat proucedure ()
+begin
+select * from students
+end$$
+delemter;
+
+2/Create procedure:
+
+receives student id
+displays that student
+delemter $$
+creat procuder( IN s int)
+begin 
+select * from student 
+where id= s;
+
+end$$
+delemter;
+
+3/Create procedure:
+
+receives name and note
+inserts new student
+
+delemter $$
+creat procuder addstuedent( IN sn int, IN snt varch(50)
+begin 
+INSERT INTO  STUDENTS(name,note) VALURE (sn,snt);
+end$$
+delemter;
+call addstuedent(nouhaila,20);
+
+3/Create procedure:
+
+receives id and new note
+updates note
+ delemter$$
+creat procuder newupdate( IN sid INT,IN snewnote INT
+begin 
+updates stuedent 
+ set  note=newnote
+where id= sid;
+end$$
+delemter;
+
+4/ deletes student
+ delemter$$
+creat procuder newupdate( IN sid INT)
+begin 
+ DELETE  FROM STUDENT 
+WHERE ID= SID;
+end$$
+delemter;
+
