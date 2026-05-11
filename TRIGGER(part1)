@@ -1,0 +1,46 @@
+A trigger is SQL code that runs automatically when something happens in a table.
+
+Think:
+
+“If something happens → execute code automatically”
+
+
+| Action | Meaning        |
+| ------ | -------------- |
+| INSERT | adding data    |
+| UPDATE | modifying data |
+| DELETE | deleting data  |
+
+Syntax:
+ DELIMITER //
+
+CREATE TRIGGER triggerName
+BEFORE INSERT
+ON tableName
+FOR EACH ROW
+BEGIN
+
+   -- SQL code
+
+END //
+
+DELIMITER ;
+
+Important Words  :
+| Keyword      | Meaning               |
+| ------------ | --------------------- |
+| BEFORE       | before operation      |
+| AFTER        | after operation       |
+| INSERT       | add row               |
+| UPDATE       | modify row            |
+| DELETE       | remove row            |
+| FOR EACH ROW | execute for every row |
+  Inside triggers we use:
+  | Keyword    | Meaning   |
+| ---------- | --------- |
+| NEW.column | new value |
+| OLD.column | old value |
+  if user insert   
+INSERT INTO students VALUES(1,'Ali',15);
+ then : NEW.name
+measn " ALI "
