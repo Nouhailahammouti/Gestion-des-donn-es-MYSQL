@@ -1,0 +1,88 @@
+1/Before inserting order:
+
+calculate total automatically
+
+DELEMETER $$
+ creat trigger   total 
+befor insert 
+ on orders
+ for each row 
+ begin 
+ set new. total =new.price *new.qty
+ end$$
+DELEMETER;
+
+
+2/Prevent deleting admin user
+
+DELEMETER $$
+ creat trigger   useradmin
+befor delete
+ on users
+ for each row 
+ begin 
+  if old.rule="admin" then 
+   SINAL SQLSTATE'45000'
+ set MESSAGE_TEXT "we can't  delet it "
+end if 
+end$$
+DELEMETER;
+
+3/After updating product:
+
+save old price in history table
+
+
+
+DELEMETER $$
+ creat trigger   oldvaluehistory  
+after  update
+ on  proudacts
+ for each row 
+ begin 
+inster intoohistory (old_price) //  we add a new row in history table 
+value (old.price) // then we add the  old valuees 
+end$$
+DELEMETER;
+
+4/Before inserting:
+
+if stock < 0
+make stock = 0
+
+
+DELEMETER $$
+ creat trigger   stockee 
+ befor insert 
+ on proudacts
+ for each row 
+ begin 
+  if new.stock >0 then 
+ set  new.stock =0;
+end if 
+end$$
+
+DELEMETER;
+
+
+GOLDEN PATTERNS
+
+ VALIDATION :  BEFOR INSERT
+History / logs:  AFTER UPDATE, AFTER DELET
+  Inserted values:  NEW.column
+ DELETE VALUE : OLD.COLUCM 
+ update value : old/new coulume
+
+
+| Operation | Available |
+| --------- | --------- |
+| INSERT    | NEW only  |
+| DELETE    | OLD only  |
+| UPDATE    | BOTH      |
+  
+Triggers are mostly:
+
+validation
+automatic calculations
+logging/history
+preventing bad operations
