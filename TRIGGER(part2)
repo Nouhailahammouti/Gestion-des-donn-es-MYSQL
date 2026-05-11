@@ -1,0 +1,58 @@
+exmpl1:
+TABLE :
+| id | name |
+| -- | ---- |
+| 1  | Ali  |
+ 1/ When student is added:
+
+insert message into logs table
+DELEMETER$$
+creat trigger  messsage
+after inster 
+ON student 
+for each row
+ begin 
+insert into logos(meessage)
+value('add a new student');
+ end$$
+DELEMETER;
+
+2/ Before inserting student:
+
+make note = 0 if negative
+insert message into logs table
+DELEMETER$$
+creat trigger  messsage
+befor inster 
+ON student 
+for each row
+ begin 
+if NEW.note <0 then 
+set NEW.note =0;
+end if 
+end$$
+DELEMETER;
+
+3/
+When student deleted:
+
+save deleted name in logs
+DELEMETER$$
+creat trigger deletarchife
+after  delete 
+on student 
+for each row
+began 
+insert into logo ('message')
+value(old.name);// it's mean when ever u deletee any name (old name )it's gana go to  archif and also  we only use old  in  delet and new in  instser but in update we use both
+end$$
+DELEMETER;  
+
+IMPORTANT MEMORY RULE
+| Situation            | Use    |
+| -------------------- | ------ |
+| inserted value       | NEW    |
+| deleted old value    | OLD    |
+| validate before save | BEFORE |
+| save history/log     | AFTER  |
+
