@@ -1,0 +1,78 @@
+1) Stored Procedure
+❓ Problem
+
+Create procedure:
+
+insert new seminar
+BUT verify animator exists first
+
+ delemter %%
+creat proceder exist (in titre varch(100),in decimal(10.2) ,in nid int)
+begin
+if  exise(                            // IF animateur exists  it's  invalid syntax
+slect *from  animation 
+ where id= nid)
+then 
+instert into  seminar(titla,cout,id  )
+value (title, cout,id)
+else 
+  singail sqlstate '45000'
+ set mesage_text ' you have to creat a  anomation frst'
+end if 
+end$$
+delmter;
+
+
+2) Function
+❓ Problem
+
+Return total cost of seminars by animator.
+
+delemter $$
+ creat  funtion total (
+noma varch (50), 
+prenomea varch(50))
+return decimal (10,2)
+DETERMINISTIC 
+begin 
+declar total decimal (10,2)
+select sum(total) into total
+from  sumanter s 
+on  join animation a            // wht joint ?  Because const in siman table and  anmatuer name in anmation table so  we need too tables then we haeve to  use to tables!
+ where  a.nome= nomea
+and  a.prenome=prenomea;
+etune total;
+end$$
+ delemter ;
+
+
+3) Trigger
+❓ Problem
+
+Prevent reservations during July of current year
+
+delmter $$
+ creat trigger  check 
+  befor insert 
+on Reservation
+for each row
+begin
+if month(new.reservation)= 7
+and year(new.reservation)=year (CURDATE())
+then 
+ singal sqlstate'4500'
+set message_text 'we can't  reserve in  July month sorry ';
+end if ;
+ end$$
+delmter ;
+
+
+| What exercise asks | What to compare   |
+| ------------------ | ----------------- |
+| full date          | direct comparison |
+| only year          | YEAR()            |
+| only month         | MONTH()           |
+| only day           | DAY()             |
+
+
+
