@@ -1,0 +1,98 @@
+
+1) Create table Trottinette:
+ creat table trotinet (
+ID_T permry int key auto,
+name varch(50),
+price int,
+etat varch(50),);
+
+2/Add column nb_batteries
+ alert table  trotenet 
+add nb_batrie unsingl  not null;//positive integer only, and cannot be empty(not null)
+
+3/ rigger RT1
+❓ Problem
+
+Control:
+
+sante_batterie between 0 and 100
+
+
+determnal $$
+
+creat trigger R1
+befor insert
+on trotrnet
+ for each row
+ begin 
+if  new.batrrie =0 or new batrie <= 100 then 
+   singal message "45000"
+set messgae 'value invarible';
+end if;
+end $$
+determanl;
+
+
+4/When inserting into Remplacement
+👉 change etat
+from:
+En Utilisation → Retiré
+delemter$$
+creat trigger R2
+ befor insert 
+ on trotenet
+for each row
+begin 
+update trotenet 'En Utilisation'
+set  'etat' when 
+id_t = new.id_t;
+end$$
+delemeter;
+
+5/ unction FCT1
+❓ Problem
+
+Return total consumed batteries for one trottinette.
+delemter $$
+ creat function fct1(id int )
+retun int
+realsic
+begin 
+declar t int
+select sume(batteries) into total
+when id_t = id
+retune t;
+end$$
+delemter;
+
+
+6/
+a.Create Role
+ creat role RoleReparateur;
+b.Give privileges
+ grant insert, update,delet
+on trotinet 
+to   RoleReparateur;
+grant insert ,updtae,delet
+on replacemnet 
+to  RoleReparateur;
+c.Create user Fatima
+creat user 'fatima@gemail.com'
+identefey by '111';
+
+d.Give role to Fatima
+ grant RoleReparateur
+to 'fatima@gemail.com';
+
+
+
+         IMPORTANT EXAM IDEAS HERE:
+| Question Type        | What to Think         |
+| -------------------- | --------------------- |
+| validate values      | BEFORE INSERT trigger |
+| modify another table | AFTER INSERT trigger  |
+| calculate total      | FUNCTION + SUM        |
+| positive integer     | UNSIGNED              |
+| permissions          | GRANT                 |
+| roles                | CREATE ROLE           |
+
