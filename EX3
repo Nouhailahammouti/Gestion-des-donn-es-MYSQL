@@ -1,0 +1,62 @@
+1/
+Créer une procédure stockée qui affiche le nombre de salariés de chaque service
+
+ DELEMETER $$
+  creat prouceder salarie()
+  begin 
+  select  service,  count(*)  as total 
+  from  salarie 
+  group by  service;
+   end$$
+    DELEMETER;
+
+    /// Whenever you see:
+
+“number of”
+“count”
+“chaque” (each)  
+think :  
+COUNT()
+GROUP BY
+
+
+
+
+2/ retourner le code du salarié utilisant une voiture
+
+ DELEMETER$$
+  creat function   code(
+   vmarticul varche(50),
+   vdate date)
+   returne int 
+   deterministic
+    begin 
+    declar codes int
+     selecet code into codes   
+     from voiture
+     where   matricul = vmatrucil 
+     and date=vdate;
+     retune codes;
+    end$$
+      DELEMETER;
+  
+     
+3/
+Prevent assigning car to employee from: informatique
+
+ DELEMETER$$
+  creat trigger preventa
+  before insert 
+  on Utilisation
+  for each row
+   begin 
+   declar e  varche (50)
+   select service into  e
+   from  salarie
+   where codesal=new.codesal;
+   if   e = 'informatique' then 
+    singal sqlstate '45000'
+    set message_text =' Prevent assigning car to employee from: informatique '
+   end$$
+    DELEMETER;
+
