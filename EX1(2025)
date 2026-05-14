@@ -59,7 +59,7 @@ retun int
 realsic
 begin 
 declar t int
-select sume(batteries) into total
+select sum(batteries) into total
 when id_t = id
 retune t;
 end$$
