@@ -1,0 +1,87 @@
+1/function 
+| الكلمة فالتمرين |          شنو تفكر |
+| --------------- | -------- |
+| retourner       | FUNCTION |
+| calculer        | FUNCTION |
+| total           | SUM()    |
+| nombre de       | COUNT()  |
+| moyenne         | AVG()    |
+| coût total      | SUM()    |
+| valeur maximale | MAX()    |
+| valeur minimale | MIN()    |
+  exmpl :
+  retourner le total des ventes
+      FUNCTION + SUM()
+
+  retourner le nombre des étudiants
+   count(*)
+    2/PROCEDURE
+    | الكلمة    | شنو تفكر         |
+| --------- | ---------------- |
+| ajouter   | INSERT           |
+| insérer   | INSERT           |
+| modifier  | UPDATE           |
+| supprimer | DELETE           |
+| afficher  | SELECT           |
+| liste     | SELECT           |
+| vérifier  | IF EXISTS غالبًا    |
+
+
+
+exmpl :ajouter un nouveau salarié
+INSERT
+
+modifier le salaire 
+UPDATE
+
+3/TRIGGER
+   | الكلمة                   | شنو تفكر            |
+| ------------------------ | ------------------- |
+| empêcher                 | SIGNAL              |
+| interdire                | SIGNAL              |
+| contrôler                | IF                  |
+| lors de l’insertion      | BEFORE INSERT       |
+| lors de la suppression   | BEFORE/AFTER DELETE |
+| lors de la modification  | BEFORE/AFTER UPDATE |
+| automatiquement          | TRIGGER             |
+| affecter automatiquement | UPDATE/SET          |
+| historique               | AFTER UPDATE/DELETE |
+| journalisation           | AFTER trigger       |
+
+exmpl:
+empêcher l’insertion :BEFORE INSERT + SIGNAL
+contrôler la valeur:IF
+
+
+4/GROUP BY
+| الكلمة        | شنو تفكر |
+| ------------- | -------- |
+| chaque        | GROUP BY |
+| par service   | GROUP BY |
+| par catégorie | GROUP BY |
+| par client    | GROUP BY |
+  exmpl:
+  le nombre de salariés de chaque service: COUNT + GROUP BY
+
+  5/JOIN
+
+  | الكلمة                           | شنو تفكر    |
+| -------------------------------- | ----------- |
+| utilisant                        | JOIN غالبًا |
+| appartenant à                    | JOIN        |
+| lié à                            | JOIN        |
+| associé à                        | JOIN        |
+| nom et prénom                    | غالبًا JOIN |
+| informations de plusieurs tables | JOIN        |
+
+
+
+6/DECLARE + SELECT INTO
+| الكلمة                   | شنو تفكر           |
+| ------------------------ | ------------------ |
+| vérifier le service      | SELECT INTO        |
+| récupérer                | SELECT INTO        |
+| obtenir                  | SELECT INTO        |
+| chercher                 | SELECT INTO        |
+| si le salarié appartient | SELECT INTO غالبًا |
+
