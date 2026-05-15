@@ -1,0 +1,70 @@
+1/ Créer les fonctions suivantes :
+
+a⦁	QuantitePrescriteTotal (numero_medicament int) qui retourne le total des quantités prescrites pour le médicament passé en paramètre.
+b⦁	NombreTotalPatientsParMedecin (cin varchar (20)) qui retourne le nombre de patients consulté par un médecin donné.
+c⦁	OrdonnacesParAnneeParMedecin (an int, cin varchar 20)) qui retourne le nombre d’ordonnances délivrées par un médecin pour une année donnée
+
+a/  
+DELEMTER$$
+creat function QuantitePrescriteTotal (numero_medicament int) 
+return int
+detirministic
+ begin 
+ declar t int
+ select SUM(QuantitePrescrite) as 'total' into t
+ from  DetailOrdonnance;
+ where NumOrdonnance=numero_medicament;
+ return t;
+ end$$
+ DELEMTER;
+
+ b/ 
+ DELEMTER$$
+ creat function  NombreTotalPatientsParMedecin(cin VARCHAR (50))
+RETURNS  int 
+ DETERMINISTIC
+  begin 
+DECLARE npc int
+    select count(*) as 'nombre de patients consulté '
+    into npc from Ordonnance
+WHERE CinMedecin = cin
+     retunr  npc;
+  end$$
+   DELEMTER;
+
+  c/
+ DELIMITER$$
+  creat function OrdonnacesParAnneeParMedecin(
+  an int,
+  cin varchar 20
+  )
+  RETURN INT
+DETERMINICSTIC
+begin 
+DECLAR opap int
+select count(*) as ' OrdonnacesParAnneeParMedecin' into  opap
+from Ordonnance 
+where  YEAR(DateConsultation)= an
+and CinMedecin =cin;
+retune opap;
+end$$
+DELIMITER;
+
+
+2/creat Procédures Stockées 
+
+a⦁	sp_NombreDeConsultationParMedecin () qui retourne le nombre de consultation pour chaque médecin.
+b⦁	sp_BestMedicamentParMedecin (cin varchar (20)) qui retourne le médicament le plus prescrit par un médecin donné.
+c⦁	sp_FirstConsultingMedecin () qui retourne le médecin qui a fait le plus de consultation (ordonnance)
+
+a/ 
+DELIMITER$$
+creat proceder sp_NombreDeConsultationParMedecin ()
+begin 
+ SELECT CinMedecin,
+     COUNT(*) AS NombreConsultations
+from Ordonnance
+
+group by CinMedecin;
+end$$
+DELIMITER;
